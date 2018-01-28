@@ -51,6 +51,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let results = recuest.results as? [VNClassificationObservation] else {
                 fatalError("Error getting the result")
             }
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("hotdog") {
+                    self.navigationItem.title = "Hotdog"
+                } else {
+                    self.navigationItem.title = "Not Hotdog"
+                }
+            }
+            
             
             print(results)
         }
